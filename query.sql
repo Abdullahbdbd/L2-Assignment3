@@ -43,3 +43,13 @@ SELECT
 FROM Users u
 LEFT JOIN Bookings b ON u.user_id = b.user_id;
 
+-- query 6
+SELECT 
+    booking_id,
+    match_id,
+    round(total_cost,0)
+FROM Bookings
+WHERE total_cost > (
+    SELECT AVG(total_cost) FROM Bookings
+);
+
