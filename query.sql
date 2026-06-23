@@ -53,3 +53,12 @@ WHERE total_cost > (
     SELECT AVG(total_cost) FROM Bookings
 );
 
+-- query 7
+SELECT 
+    match_id,
+    fixture,
+    round(base_ticket_price, 0)
+FROM Matches
+ORDER BY base_ticket_price DESC
+OFFSET 1
+LIMIT 2;
